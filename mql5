@@ -1,0 +1,80 @@
+
+//+------------------------------------------------------------------+
+//|             ATR Multicurrency Trading Algorithm                  |
+//|                  Copyright 2021, Example Corp.                   |
+//|                   https://www.example-corp.com                    |
+//+------------------------------------------------------------------+
+
+#property copyright '2021, Example Corp.'
+#property link      'https://www.example-corp.com'
+#property version   '1.00'
+#property strict
+
+// Include necessary libraries
+#include <Trade\Trade.mqh>
+#include <Indicators\Indicators.mqh>
+
+// Declare global variables
+CTrade Trade;
+CIndicators Indicators;
+string currencyPairs[] = {'USDCHF', 'GBPUSD', 'EURUSD'};
+
+// Expert initialization function
+int OnInit()
+{
+    // Initialize trade and indicators
+        Trade.Initialize();
+            Indicators.Initialize();
+
+                return(INIT_SUCCEEDED);
+                }
+
+                // Expert deinitialization function
+                void OnDeinit(const int reason)
+                {
+                    // Deinitialize trade and indicators
+                        Trade.Deinitialize();
+                            Indicators.Deinitialize();
+                            }
+
+                            // Expert tick function
+                            void OnTick()
+                            {
+                                // Check if it's night-time
+                                    if(!isNightTime())
+                                            return;
+
+                                                // Loop through each currency pair
+                                                    for(int i = 0; i < ArraySize(currencyPairs); i++)
+                                                        {
+                                                                // Check for optimal market entry points
+                                                                        if(findEntryPoints(currencyPairs[i]))
+                                                                                {
+                                                                                            // Execute trade
+                                                                                                        executeTrade(currencyPairs[i]);
+                                                                                                                }
+                                                                                                                    }
+                                                                                                                    }
+                                                                                                                    
+                                                                                                                    // Function to determine if it's night-time
+                                                                                                                    bool isNightTime()
+                                                                                                                    {
+                                                                                                                        // Implement code to determine if it's night-time
+                                                                                                                        }
+                                                                                                                        
+                                                                                                                        // Function to find optimal market entry points
+                                                                                                                        bool findEntryPoints(string pair)
+                                                                                                                        {
+                                                                                                                            // Implement code to find optimal market entry points
+                                                                                                                            }
+                                                                                                                            
+                                                                                                                            // Function to execute trade
+                                                                                                                            void executeTrade(string pair)
+                                                                                                                            {
+                                                                                                                                // Implement code to execute trade
+                                                                                                                                }
+                                                                                                                                
+                                                                                                                                //+------------------------------------------------------------------+
+                                                                                                                                //|                                                                  |
+                                                                                                                                //+------------------------------------------------------------------+
+                                                                                                                                
